@@ -1,5 +1,7 @@
 package hiber.model;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,7 +14,7 @@ public class Car {
     @Column(name = "id")
     private Long id;
 
-    @OneToOne(mappedBy = "car")
+    @OneToOne
     private User user;
 
     @Column(name = "model")
@@ -55,6 +57,10 @@ public class Car {
 
     public Long getId() {
         return id;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
